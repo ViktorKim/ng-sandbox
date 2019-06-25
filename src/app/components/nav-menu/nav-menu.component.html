@@ -1,0 +1,14 @@
+<nav class="nav-menu__wrapper">
+    <ul class="nav-menu">
+        <li *ngFor="let menu of menus">
+            {{menu.name}}
+        </li>
+
+        <li class="nav-menu__item">
+            <a routerLink="/">Home</a>
+        </li>
+        <li class="nav-menu__item">
+            <a routerLink="/test">Test</a>
+        </li>
+    </ul>
+</nav>
