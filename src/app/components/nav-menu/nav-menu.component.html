@@ -1,14 +1,9 @@
 <nav class="nav-menu__wrapper">
     <ul class="nav-menu">
-        <li *ngFor="let menu of menus">
-            {{menu.name}}
-        </li>
-
-        <li class="nav-menu__item">
-            <a routerLink="/">Home</a>
-        </li>
-        <li class="nav-menu__item">
-            <a routerLink="/test">Test</a>
+        <li *ngFor="let menuItem of menu" class="nav-menu__item">
+            <a routerLink="{{menuItem.url|link: 'relative'}}">
+                {{menuItem.title}}
+            </a>
         </li>
     </ul>
 </nav>

@@ -7,6 +7,7 @@ import { PageComponent } from './pages/page/page.component';
 import { PageNotFoundComponent } from './pages/page/page-not-found/page-not-found.component';
 import { PageHomeComponent } from './pages/page/page-home/page-home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { LinkPipe } from './pipes/link/link.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
     PageComponent,
     PageNotFoundComponent,
     PageHomeComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    LinkPipe
   ],
   imports: [
     BrowserModule,

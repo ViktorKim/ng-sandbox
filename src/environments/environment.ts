@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  domainUrl: 'https://loc.sandbox.com/',
   apiUrl: '//loc.sandbox.com/wp-json'
 };
 

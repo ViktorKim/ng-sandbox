@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Menu, MenusService} from '../../services/navigation/menus.service';
+import {MenusService, IMenuItem} from '../../services/navigation/menus.service';
 import {Logger} from '../../utils/Logger';
 
 @Component({
@@ -9,15 +9,15 @@ import {Logger} from '../../utils/Logger';
 })
 export class NavMenuComponent implements OnInit {
 
-  menus: Array<Menu>;
+  menu: Array<IMenuItem>;
 
   constructor() {
   }
 
   ngOnInit() {
-    (new MenusService()).getMenus().subscribe(response => {
-      this.menus = response.response;
-    },
+    (new MenusService()).fetchMenuByLocation('footer').subscribe(response => {
+        this.menu = response.response.items;
+      },
       error => (Logger.log(error)));
   }
 }
