@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SiteIntoService, ISiteInfo} from '../../services/content/site-into.service';
+import {Logger} from '../../utils/Logger';
 
 @Component({
   selector: 'app-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  siteInfo: ISiteInfo;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    SiteIntoService.fetchSiteInfo().subscribe(res => {
+      this.siteInfo = res.response;
+    }, error => (Logger.log(error)));
   }
 
 }

@@ -1,5 +1,8 @@
 <header>
-<h1>Site name</h1>
+    <div class="logo__wrapper" *ngIf="siteInfo">
+        <h1 class="logo"><a routerLink="{{siteInfo.home|link: 'relative'}}">{{siteInfo.name}}</a></h1>
+        <div class="description">{{siteInfo.description}}</div>
+    </div>
     <app-nav-menu></app-nav-menu>
 </header>
 
