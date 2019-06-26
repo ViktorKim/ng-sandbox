@@ -7,9 +7,10 @@ import {environment} from '../../../environments/environment';
 export class LinkPipe implements PipeTransform {
 
   transform(value: string, type?: string): string {
-    let link = value;
+    let link = new URL(value).href;
+    const domainUrl = new URL(environment.domainUrl).href;
     if (type === 'relative') {
-      link = link.replace(environment.domainUrl, '');
+      link = link.replace(domainUrl, '');
     }
     return link;
   }
