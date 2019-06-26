@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SiteIntoService, ISiteInfo} from '../../services/content/site-into.service';
+import {SiteIntoService, ISiteInfo} from '../../services/site-info/site-into.service';
 import {Logger} from '../../utils/Logger';
 
 @Component({
