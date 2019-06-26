@@ -1,9 +1,10 @@
 import {of} from 'rxjs';
 import {ajax} from 'rxjs/internal-compatibility';
 import {catchError, map} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 export class Api {
-  private API_URL = '//loc.sandbox.com/wp-json';
+  private API_URL = environment.apiUrl;
 
   constructor() {
   }
@@ -13,7 +14,6 @@ export class Api {
     return ajax(url).pipe(
       map(request => request),
       catchError(error => {
-        console.log('error: ', error);
         return of(error);
       })
     );
