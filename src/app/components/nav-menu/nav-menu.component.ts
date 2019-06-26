@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Menu, MenusService} from '../../services/navigation/menus.service';
+import {Logger} from '../../utils/Logger';
 
 @Component({
   selector: 'app-nav-menu',
@@ -16,6 +17,7 @@ export class NavMenuComponent implements OnInit {
   ngOnInit() {
     (new MenusService()).getMenus().subscribe(response => {
       this.menus = response.response;
-    });
+    },
+      error => (Logger.log(error)));
   }
 }
