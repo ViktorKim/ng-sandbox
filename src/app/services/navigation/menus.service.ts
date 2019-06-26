@@ -3,29 +3,25 @@ import {Api} from '../../utils/Api';
 import {Observable} from 'rxjs';
 import {AjaxResponse} from 'rxjs/ajax';
 
-export interface Menu {
-  term_id: 2;
-  name: string;
+export interface IMenuItem {
+  title: string;
+  url: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MenusService {
 
   api: Api;
-  menus$: Observable<AjaxResponse>;
 
   constructor() {
     this.api = new Api();
-    this.menus$ = this.fetchMenus$();
   }
 
-  private fetchMenus$() {
-    return this.api.fetch('/menus/v1/menus');
+  fetchMenuByLocation(location: string): Observable<AjaxResponse> {
+    return this.api.fetch('/menus/v1/locations/' + location);
   }
 
-  getMenus() {
-    return this.menus$;
-  }
 }
