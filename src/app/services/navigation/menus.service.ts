@@ -14,14 +14,11 @@ export interface IMenuItem {
 
 export class MenusService {
 
-  api: Api;
-
   constructor() {
-    this.api = new Api();
   }
 
-  fetchMenuByLocation(location: string): Observable<AjaxResponse> {
-    return this.api.fetch('/menus/v1/locations/' + location);
+  static fetchMenuByLocation(location: string): Observable<AjaxResponse> {
+    return Api.fetch('/menus/v1/locations/' + location);
   }
 
 }

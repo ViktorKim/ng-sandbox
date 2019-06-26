@@ -15,7 +15,7 @@ export class NavMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    (new MenusService()).fetchMenuByLocation('footer').subscribe(response => {
+    MenusService.fetchMenuByLocation('footer').subscribe(response => {
         this.menu = response.response.items;
       },
       error => (Logger.log(error)));
